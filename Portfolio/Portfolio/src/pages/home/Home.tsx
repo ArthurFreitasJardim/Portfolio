@@ -1,5 +1,6 @@
 import { Header } from '../components/header';
 import { Apresentacao } from '../components/apresentacao';
+import { About } from '../components/about'
 import * as styled from "./Home.styles";
 
 export function Home() {
@@ -7,6 +8,7 @@ export function Home() {
       <styled.HomeContainer>
         <Header />
         <Apresentacao mostrar={true} />
+        <About mostrar={true} />
       </styled.HomeContainer>
     );
   }

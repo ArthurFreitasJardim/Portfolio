@@ -7,9 +7,8 @@ import {
   Menu,
   ItemMenu,
   LinkItemMenu,
-  SwitchLabel,
-  Slider,
 } from './Header.styles';
+import { Home } from 'lucide-react';
 
 const Header: React.FC = () => {
   const [menuAtivo, setMenuAtivo] = useState(false);
@@ -17,6 +16,14 @@ const Header: React.FC = () => {
 
   const toggleMenu = () => {
     setMenuAtivo((prev) => !prev);
+  };
+
+  const irParaSecao = (id: string) => {
+    const secao = document.getElementById(id);
+    if (secao) {
+      secao.scrollIntoView({ behavior: 'smooth' });
+      setMenuAtivo(false); 
+    }
   };
 
   useEffect(() => {
@@ -27,8 +34,15 @@ const Header: React.FC = () => {
 
   return (
     <Cabecalho className={scrolled ? 'scrolled' : ''}>
-      
-      <Arroba>@arthur</Arroba>
+      <Arroba>
+        @arthur
+  <div
+    className={`icone-home ${scrolled ? 'icone-home-active' : ''}`}
+    onClick={() => irParaSecao('apresentacao')}
+  >
+    <Home />
+  </div>
+</Arroba>
 
       <MenuToggle onClick={toggleMenu} aria-label="Abrir menu">
         <Hamburger />
@@ -36,22 +50,16 @@ const Header: React.FC = () => {
 
       <Menu className={menuAtivo ? 'active' : ''}>
         <ItemMenu>
-          <LinkItemMenu href="#" id="botao_sobre">Sobre</LinkItemMenu>
+          <LinkItemMenu onClick={() => irParaSecao('about')}>Sobre</LinkItemMenu>
         </ItemMenu>
         <ItemMenu>
-          <LinkItemMenu href="#" id="botao_projetos">Projetos</LinkItemMenu>
+          <LinkItemMenu onClick={() => irParaSecao('projetos')}>Projetos</LinkItemMenu>
         </ItemMenu>
         <ItemMenu>
-          <LinkItemMenu href="#" id="botao_certificados">Certificações</LinkItemMenu>
+          <LinkItemMenu onClick={() => irParaSecao('competencias')}>Certificações</LinkItemMenu>
         </ItemMenu>
         <ItemMenu>
-          <LinkItemMenu href="#" id="botao_contato">Contato</LinkItemMenu>
-        </ItemMenu>
-        <ItemMenu>
-          <SwitchLabel className="switch">
-            <input type="checkbox" id="botao_tema" />
-            <Slider className="slider" />
-          </SwitchLabel>
+          <LinkItemMenu onClick={() => irParaSecao('contato')}>Contato</LinkItemMenu>
         </ItemMenu>
       </Menu>
     </Cabecalho>

@@ -70,6 +70,7 @@ export const RedesSociais = styled.div<{ mostrar: boolean }>`
   opacity: ${({ mostrar }) => (mostrar ? 1 : 0)};
   transform: ${({ mostrar }) => (mostrar ? 'translateY(0)' : 'translateY(-50px)')};
   transition: all 0.8s ease-in-out 0.4s;
+  margin-bottom: 3rem; 
 
   svg {
     width: 30px;
@@ -87,6 +88,9 @@ export const BotaoDownload = styled.a<{ mostrar: boolean }>`
   font-size: 1.1rem;
   padding: 0.8em;
   font-weight: 600;
+  text-decoration: none; 
+  margin-top: 2rem;       
+
   opacity: ${({ mostrar }) => (mostrar ? 1 : 0)};
   transform: ${({ mostrar }) => (mostrar ? 'translateY(0)' : 'translateY(-50px)')};
   transition: ease-in-out 0.6s;
@@ -101,8 +105,14 @@ export const BotaoDownload = styled.a<{ mostrar: boolean }>`
 
   @media (max-width: 1200px) {
     width: 50%;
+    margin-top: 1.5rem;
   }
-`
+
+  @media (max-width: 768px) {
+    width: 80%;
+    margin-top: 1rem;
+  }
+`;
 
 export const BotaoDownloadLight = styled(BotaoDownload)`
   border: none;
