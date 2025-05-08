@@ -86,7 +86,8 @@ export const Skills = () => {
                 ))}
             </ListaCompetencias>
 
-            <TituloCompetencias style={{ marginTop: '1rem' }}></TituloCompetencias>
+            <TituloCompetencias style={{ marginTop: '1rem' }}>--</TituloCompetencias>
+            
 
             <ListaCompetencias>
                 {softSkills.map((item, index) => (
