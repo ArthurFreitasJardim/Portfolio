@@ -53,10 +53,10 @@ const Header: React.FC = () => {
           <LinkItemMenu onClick={() => irParaSecao('about')}>Sobre</LinkItemMenu>
         </ItemMenu>
         <ItemMenu>
-          <LinkItemMenu onClick={() => irParaSecao('projetos')}>Projetos</LinkItemMenu>
+          <LinkItemMenu onClick={() => irParaSecao('skills')}>Competências</LinkItemMenu>
         </ItemMenu>
         <ItemMenu>
-          <LinkItemMenu onClick={() => irParaSecao('competencias')}>Certificações</LinkItemMenu>
+          <LinkItemMenu onClick={() => irParaSecao('competencias')}>Competências</LinkItemMenu>
         </ItemMenu>
         <ItemMenu>
           <LinkItemMenu onClick={() => irParaSecao('contato')}>Contato</LinkItemMenu>
