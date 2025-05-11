@@ -1,3 +1,6 @@
+![image](https://github.com/user-attachments/assets/93b8d7f7-5de4-47f6-9014-707cdc94dacb)
+
+
 # 🌐 Portfolio - Meu Site Pessoal
 **Autor**: Arthur  
 **Data**: 11 de Maio de 2025
