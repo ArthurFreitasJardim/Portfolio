@@ -37,7 +37,7 @@ Este site está hospedado no Vercel, uma plataforma que proporciona deploy cont�
 
 Acesse o meu portfolio online clicando no link abaixo:
 
-[Portfolio Online](https://meu-portfolio.vercel.app](https://portfolio-arthur-lebe82e08-arthurfreitasjardims-projects.vercel.app))
+[Portfolio Online](https://portfolio-arthur-lebe82e08-arthurfreitasjardims-projects.vercel.app)
 
 ## 📂 Estrutura do Projeto
 - `src/` - Contém o código-fonte do aplicativo.
