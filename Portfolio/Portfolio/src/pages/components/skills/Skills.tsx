@@ -1,6 +1,7 @@
 import type { IconType } from 'react-icons'
 import {
     FaBook,
+    FaCloud,
     FaCommentDots,
     FaCss3Alt, FaDatabase, FaFigma, FaGitAlt, FaGithub, FaHtml5,
     FaNodeJs, FaPython, FaReact, FaSwift
@@ -12,6 +13,7 @@ import { DiScrum } from 'react-icons/di'
 import { MdDataObject, MdViewKanban } from 'react-icons/md'
 import { FaFlutter } from 'react-icons/fa6'
 import { TbApi } from 'react-icons/tb'
+import { IoLogoVercel } from 'react-icons/io5'
 
 import {
     ContainerCompetencias,
@@ -59,19 +61,21 @@ const competencias: Competencia[] = [
     { nome: 'Flutter', nivel: '70', icone: FaFlutter },
     { nome: 'POO', nivel: '70', icone: MdDataObject },
     { nome: 'RESTful APIs', nivel: '70', icone: TbApi },
+    { nome: 'Vercel', nivel: '70', icone: IoLogoVercel },
+    { nome: 'Nuvem', nivel: '70', icone: FaCloud },
 ]
 
 const softSkills: Competencia[] = [
-    { nome: 'Comunicação',nivel: 'Facilidade em Comunicar', icone: FaCommentDots},
-    { nome: 'Equipe', nivel: 'Gosto de Trabalhar em equipe',icone: RiTeamLine },
-    { nome: 'Aprendizado', nivel: 'Facilidade no aprendizado',icone: FaBook},
+    { nome: 'Comunicação', nivel: 'Facilidade em Comunicar', icone: FaCommentDots },
+    { nome: 'Equipe', nivel: 'Gosto de Trabalhar em equipe', icone: RiTeamLine },
+    { nome: 'Aprendizado', nivel: 'Facilidade no aprendizado', icone: FaBook },
 ]
 
 export const Skills = () => {
     return (
         <ContainerCompetencias id="skills">
             <TituloCompetencias>Competências</TituloCompetencias>
-            <ListaCompetencias> 
+            <ListaCompetencias>
                 {competencias.map((item, index) => (
                     <CardCompetencia key={index}>
                         <NomeCompetencia>
@@ -87,7 +91,7 @@ export const Skills = () => {
             </ListaCompetencias>
 
             <TituloCompetencias style={{ marginTop: '1rem' }}>--</TituloCompetencias>
-            
+
 
             <ListaCompetencias>
                 {softSkills.map((item, index) => (

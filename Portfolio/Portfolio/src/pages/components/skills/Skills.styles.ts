@@ -15,10 +15,15 @@ const fonts = {
 
 export const ContainerCompetencias = styled.section`
   width: 100%;
+  min-height: 100vh; 
   padding: 5rem 2rem;
   background-color: ${colors.background};
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
 `
+
 
 export const TituloCompetencias = styled.h2`
   font-family: ${fonts.primary};

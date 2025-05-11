@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import Image from "../../../assets/image.png";
+import Image from "../../../assets/selfie.png";
 import Game from "../../../assets/game.png"
 import Futebol from "../../../assets/futebol.png"
 import Musica from "../../../assets/musica.png"
