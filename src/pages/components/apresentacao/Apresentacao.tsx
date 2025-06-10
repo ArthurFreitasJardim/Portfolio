@@ -32,11 +32,6 @@ const Apresentacao: React.FC<Props> = ({ mostrar }) => {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-    >
       <ApresentacaoSection mostrar={mostrar} id="apresentacao">
         <div className="conteudo">
           <Titulo mostrar={mostrar}>&lt;Arthur Freitas&gt;</Titulo>
@@ -66,7 +61,6 @@ const Apresentacao: React.FC<Props> = ({ mostrar }) => {
 
         <Seta onClick={() => irParaSecao('about')} />
       </ApresentacaoSection>
-    </motion.div>
   );
 };
 
