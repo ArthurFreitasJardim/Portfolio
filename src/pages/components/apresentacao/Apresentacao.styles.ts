@@ -162,7 +162,7 @@ export const IconeContatoLight = styled(IconeContato)`
 
 export const Seta = styled.div`
   position: absolute;
-  bottom: 20px;
+  bottom: 50px;
   left: 50%;
   transform: translateX(-50%);
   width: 0;

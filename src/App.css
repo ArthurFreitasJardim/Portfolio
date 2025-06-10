@@ -1,39 +1,42 @@
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-
 ::-webkit-scrollbar {
   width: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #1e1e1e; 
+  background: #1e1e1e;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #414797; 
+  background-color: #414797;
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
+    transform: translateY(10px); 
   }
   to {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
 body {
-  animation: fadeIn 2.8s ease-in-out;
+  animation: fadeIn 1.8s ease-out;
+  animation-fill-mode: both;
   font-family: "Heebo", sans-serif;
   background-color: #18181B;
   color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  will-change: opacity, transform;
 }
-
 
 h1,
 h2,

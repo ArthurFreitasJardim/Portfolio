@@ -6,7 +6,6 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 function App() {
-
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -16,9 +15,11 @@ function App() {
 
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
+      <div className="fade-wrapper">
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </div>
     </Router>
   );
 }

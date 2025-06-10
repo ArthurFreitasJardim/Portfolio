@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import Curriculo from '../../../assets/Currículo-ArthurFreitas.pdf';
 
 import {

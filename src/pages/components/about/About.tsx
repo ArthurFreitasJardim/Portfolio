@@ -21,8 +21,8 @@ const About: React.FC<{ mostrar: boolean }> = ({ mostrar }) => {
       <FundoAnimado />
 
       <ElementoFlutuante src={Game} style={{ opacity:'100%', top: '15%', left: '5%' }} />
-      <ElementoFlutuante src={Futebol} style={{opacity:'100%', top: '85%', left: '6%' }} />
-      <ElementoFlutuante src={Musica} style={{opacity:'100%', top: '30%', right: '5%' }} />
+      <ElementoFlutuante src={Futebol} style={{opacity:'100%', top: '85%', left: '4%' }} />
+      <ElementoFlutuante src={Musica} style={{opacity:'100%', top: '20%', right: '5%' }} />
 
       <ConteudoSobre>
         <motion.div
