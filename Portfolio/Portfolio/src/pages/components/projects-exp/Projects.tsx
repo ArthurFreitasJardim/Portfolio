@@ -1,3 +1,7 @@
+import Grafos from '../../../assets/grafos.jpg'
+import LeaderRH from '../../../assets/leaderrh.jpg'
+import CodeClub from '../../../assets/codeclublogo.jpg'
+
 import {
     BotaoProjeto,
     CardExperiencia,
@@ -12,31 +16,31 @@ import {
 const Projects = () => {
     const projetos = [
         {
-            nome: 'Petshop Finder',
-            descricao: 'Aplicação para localizar petshops próximos com React e Node.js.',
-            demo: 'https://petshopfinder.vercel.app',
-            repositorio: 'https://github.com/seuuser/petshop-finder',
-            imagem: '/imgs/petshopfinder.png',
+            nome: 'Projeto Grafos',
+            descricao: 'Aplicação para manipulação e visualização de grafos feita em Python',
+            demo: 'https://github.com/ArthurFreitasJardim/biblioteca-grafos-algoritmos',
+            repositorio: 'https://github.com/ArthurFreitasJardim/biblioteca-grafos-algoritmos',
+            imagem: Grafos,
         },
         {
-            nome: 'All-In Store',
-            descricao: 'Loja virtual desenvolvida com foco em performance e UX.',
+            nome: 'Drogaria Iporanga',
+            descricao: 'E-commerce feito para fármacia, utiliza banco de dados e comunicação por API',
             demo: 'https://allin.vercel.app',
             repositorio: 'https://github.com/seuuser/allin-store',
-            imagem: '/imgs/allin.png',
+            imagem: '',
         },
     ]
 
     const experiencias = [
         {
-            nome: 'Estágio em Desenvolvimento',
-            descricao: 'Atuei como estagiário desenvolvendo soluções web com React e Spring Boot.',
-            imagem: '/imgs/empresa1.png',
+            nome: 'Estágio em TI',
+            descricao: 'Atuei como estagiário na manutenção de equipamentos,e principalmente na arquiteturação de nuvem',
+            imagem: LeaderRH,
         },
         {
-            nome: 'Voluntário ONG Dog Anjos Cat',
-            descricao: 'Participei do desenvolvimento de um sistema para gestão de adoções e voluntários.',
-            imagem: '/imgs/ong.png',
+            nome: 'Voluntário Code Club',
+            descricao: 'Auxiliei nas aula de introdução à programação e lógica de programação para crianças de 9 a 15 anos através do python e de scratch 2.',
+            imagem: CodeClub,
         },
     ]
 

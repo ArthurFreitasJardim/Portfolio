@@ -58,9 +58,6 @@ const Header: React.FC = () => {
         <ItemMenu>
           <LinkItemMenu onClick={() => irParaSecao('projects')}>Projetos/Experiências</LinkItemMenu>
         </ItemMenu>
-        <ItemMenu>
-          <LinkItemMenu onClick={() => irParaSecao('contato')}>Contato</LinkItemMenu>
-        </ItemMenu>
       </Menu>
     </Cabecalho>
   );
