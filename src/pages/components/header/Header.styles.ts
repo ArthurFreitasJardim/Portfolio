@@ -11,12 +11,14 @@ export const Cabecalho = styled.header`
   left: 0;
   width: 100%;
   background-color: ${colorPalette.background};
-  z-index: 1000;
-  transition: 0.5s;
+  z-index: 9999;
+  transition: all 0.4s ease;
   padding: 2em 3em;
 
   &.scrolled {
-    border-bottom: 1px solid ${colorPalette.destaque}; /* linha fina e discreta */
+    border-bottom: 1px solid ${colorPalette.destaque};
+    background-color: rgba(24, 24, 27, 0.95);
+    backdrop-filter: blur(4px);
   }
 `;
 
@@ -33,7 +35,7 @@ export const Arroba = styled.a`
 
   .icone-home {
     opacity: 0;
-    transform: translate( 110px, 4px); 
+    transform: translate(110px, 4px);
     margin-right: 0.3rem;
     transition: opacity 0.6s ease, transform 0.6s ease;
     cursor: pointer;
@@ -47,7 +49,7 @@ export const Arroba = styled.a`
 
   .icone-home-active {
     opacity: 1;
-    transform: translate(2.5em, 0em); 
+    transform: translate(2.5em, 0em);
   }
 `;
 
@@ -150,49 +152,10 @@ export const LinkItemMenu = styled.a`
   }
 `;
 
-export const SwitchLabel = styled.label`
-  position: relative;
-  display: inline-block;
-  width: 50px;
-  height: 24px;
-`;
-
-export const Slider = styled.span`
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: 0.4s;
-  border-radius: 24px;
-
-  &::before {
-    position: absolute;
-    content: "";
-    height: 18px;
-    width: 18px;
-    left: 4px;
-    bottom: 3px;
-    background-color: white;
-    transition: 0.4s;
-    border-radius: 50%;
-  }
-
-  input:checked + & {
-    background-color: ${colorPalette.destaque};
-  }
-
-  input:checked + &::before {
-    transform: translateX(26px);
-  }
-`;
-
 export const IconeHome = styled(Home)`
   position: relative;
-  top: 2px;      
-  right: 6px;   
+  top: 2px;
+  right: 6px;
   font-size: 1.1em;
   vertical-align: middle;
 `;

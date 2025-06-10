@@ -1,4 +1,5 @@
 import Grafos from '../../../assets/grafos.jpg'
+import NOG from '../../../assets/nog-digital.png'
 import LeaderRH from '../../../assets/leaderrh.jpg'
 import CodeClub from '../../../assets/codeclublogo.jpg'
 
@@ -28,6 +29,13 @@ const Projects = () => {
             demo: 'https://allin.vercel.app',
             repositorio: 'https://github.com/seuuser/allin-store',
             imagem: '',
+        },
+        {
+            nome: 'NOG Digital',
+            descricao: 'Site em Typescript e React, produzido para minha empresa em parceria com um amigo, onde oferecemos soluções digitais',
+            demo: 'https://www.nogdigital.com.br/?fbclid=PAZXh0bgNhZW0CMTEAAae_C9LjBiipWmbbQ3FTind1G_FsioJTa4UdCyT7ScrwKufpQM2lzPiHVL5c0w_aem_iF6ljUON7TfPEsvb4xo_TQ',
+            repositorio: 'https://www.nogdigital.com.br/?fbclid=PAZXh0bgNhZW0CMTEAAae_C9LjBiipWmbbQ3FTind1G_FsioJTa4UdCyT7ScrwKufpQM2lzPiHVL5c0w_aem_iF6ljUON7TfPEsvb4xo_TQ',
+            imagem: NOG,
         },
     ]
 

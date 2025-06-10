@@ -43,7 +43,8 @@ export const CardProjeto = styled.div`
   background-color: rgba(255, 255, 255, 0.03);
   border: 1px solid ${colors.primary};
   border-radius: 16px;
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   padding: 1.5rem;
   padding-top: 0;
   display: flex;
@@ -78,7 +79,7 @@ export const CardProjeto = styled.div`
 
 export const ImagemProjeto = styled.img`
   width: 100%;
-  height: 160px;
+  height: auto; 
   object-fit: cover;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
