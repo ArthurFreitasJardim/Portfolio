@@ -1,5 +1,5 @@
 import React from 'react';
-import Curriculo from '../../../assets/Currículo-ArthurFreitas.pdf';
+import Curriculo from '../../../assets/CurrículoArthurFreitas.pdf';
 
 import {
   Apresentacao as ApresentacaoSection,

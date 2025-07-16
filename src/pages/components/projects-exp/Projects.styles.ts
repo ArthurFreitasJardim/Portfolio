@@ -32,10 +32,10 @@ export const TituloSessao = styled.h2`
 `
 
 export const GridCards = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  width: 100%;
   margin-bottom: 4rem;
 `
 
@@ -43,10 +43,7 @@ export const CardProjeto = styled.div`
   background-color: rgba(255, 255, 255, 0.03);
   border: 1px solid ${colors.primary};
   border-radius: 16px;
-  width: 100%;
-  max-width: 300px;
-  padding: 1.5rem;
-  padding-top: 0;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,19 +53,21 @@ export const CardProjeto = styled.div`
     font-family: ${fonts.primary};
     color: ${colors.highlight2};
     font-size: 20px;
-    margin: 1rem 0 0.5rem;
+    margin: 0.8rem 0 0.5rem;
   }
 
   p {
     font-family: ${fonts.secondary};
     color: ${colors.white};
     font-size: 14px;
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
   }
 
   div {
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   &:hover {
@@ -76,6 +75,7 @@ export const CardProjeto = styled.div`
     box-shadow: 0 0 20px #3f64b3;
   }
 `
+
 
 export const ImagemProjeto = styled.img`
   width: 100%;
@@ -144,4 +144,17 @@ export const ImagemExperiencia = styled.img`
   border-radius: 12px;
   background-color: white;
   flex-shrink: 0;
+`
+export const IconeProjeto = styled.div`
+  color: ${colors.destaque};
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+`
+
+export const GridExperiencias = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
 `

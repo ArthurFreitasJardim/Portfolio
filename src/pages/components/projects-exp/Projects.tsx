@@ -1,7 +1,4 @@
-import Grafos from '../../../assets/grafos.jpg'
-import NOG from '../../../assets/nog-digital.png'
-import LeaderRH from '../../../assets/leaderrh.jpg'
-import CodeClub from '../../../assets/codeclublogo.jpg'
+import { Laptop2, ShoppingCart, Network } from 'lucide-react'
 
 import {
     BotaoProjeto,
@@ -9,10 +6,14 @@ import {
     CardProjeto,
     ContainerProjetos,
     GridCards,
+    IconeProjeto,
+    GridExperiencias,
     ImagemExperiencia,
-    ImagemProjeto,
     TituloSessao
 } from './Projects.styles'
+
+import LeaderRH from '../../../assets/leaderrh.jpg'
+import CodeClub from '../../../assets/codeclublogo.jpg'
 
 const Projects = () => {
     const projetos = [
@@ -21,33 +22,33 @@ const Projects = () => {
             descricao: 'Aplicação para manipulação e visualização de grafos feita em Python',
             demo: 'https://github.com/ArthurFreitasJardim/biblioteca-grafos-algoritmos',
             repositorio: 'https://github.com/ArthurFreitasJardim/biblioteca-grafos-algoritmos',
-            imagem: Grafos,
+            icone: <Network size={48} />,
         },
         {
             nome: 'Drogaria Iporanga',
             descricao: 'E-commerce feito para fármacia, utiliza banco de dados e comunicação por API',
             demo: 'https://allin.vercel.app',
             repositorio: 'https://github.com/seuuser/allin-store',
-            imagem: '',
+            icone: <ShoppingCart size={48} />,
         },
         {
             nome: 'NOG Digital',
             descricao: 'Site em Typescript e React, produzido para minha empresa em parceria com um amigo, onde oferecemos soluções digitais',
-            demo: 'https://www.nogdigital.com.br/?fbclid=PAZXh0bgNhZW0CMTEAAae_C9LjBiipWmbbQ3FTind1G_FsioJTa4UdCyT7ScrwKufpQM2lzPiHVL5c0w_aem_iF6ljUON7TfPEsvb4xo_TQ',
-            repositorio: 'https://www.nogdigital.com.br/?fbclid=PAZXh0bgNhZW0CMTEAAae_C9LjBiipWmbbQ3FTind1G_FsioJTa4UdCyT7ScrwKufpQM2lzPiHVL5c0w_aem_iF6ljUON7TfPEsvb4xo_TQ',
-            imagem: NOG,
+            demo: 'https://www.nogdigital.com.br',
+            repositorio: 'https://www.nogdigital.com.br',
+            icone: <Laptop2 size={48} />,
         },
     ]
 
     const experiencias = [
         {
             nome: 'Estágio em TI',
-            descricao: 'Atuei como estagiário na manutenção de equipamentos,e principalmente na arquiteturação de nuvem',
+            descricao: 'Atuei como estagiário na manutenção de equipamentos e principalmente na arquiteturação de nuvem.',
             imagem: LeaderRH,
         },
         {
             nome: 'Voluntário Code Club',
-            descricao: 'Auxiliei nas aula de introdução à programação e lógica de programação para crianças de 9 a 15 anos através do python e de scratch 2.',
+            descricao: 'Auxiliei nas aulas de introdução à programação para crianças, usando Python e Scratch 2.',
             imagem: CodeClub,
         },
     ]
@@ -58,7 +59,7 @@ const Projects = () => {
             <GridCards>
                 {projetos.map((projeto, i) => (
                     <CardProjeto key={i}>
-                        <ImagemProjeto src={projeto.imagem} alt={projeto.nome} />
+                        <IconeProjeto>{projeto.icone}</IconeProjeto>
                         <h3>{projeto.nome}</h3>
                         <p>{projeto.descricao}</p>
                         <div>
@@ -70,7 +71,7 @@ const Projects = () => {
             </GridCards>
 
             <TituloSessao>Experiências</TituloSessao>
-            <GridCards>
+            <GridExperiencias>
                 {experiencias.map((exp, i) => (
                     <CardExperiencia key={i}>
                         <ImagemExperiencia src={exp.imagem} alt={exp.nome} />
@@ -80,7 +81,7 @@ const Projects = () => {
                         </div>
                     </CardExperiencia>
                 ))}
-            </GridCards>
+            </GridExperiencias>
         </ContainerProjetos>
     )
 }
