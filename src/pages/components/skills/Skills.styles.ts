@@ -143,3 +143,34 @@ export const CardCompetencia = styled.div`
     }
   }
 `
+export const TituloComTooltip = styled.div`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+  cursor: pointer;
+`
+
+export const Tooltip = styled.span`
+  visibility: hidden;
+  opacity: 0;
+  width: 220px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px;
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.85rem;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+
+  ${TituloComTooltip}:hover & {
+    visibility: visible;
+    opacity: 1;
+  }
+`

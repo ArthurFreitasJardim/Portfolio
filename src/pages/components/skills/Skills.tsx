@@ -1,4 +1,5 @@
 import type { IconType } from 'react-icons'
+import { FaQuestionCircle } from 'react-icons/fa'
 import {
     FaBook,
     FaCloud,
@@ -22,7 +23,9 @@ import {
     CardCompetencia,
     NomeCompetencia,
     InfoHover,
-    Nivel
+    Nivel,
+    TituloComTooltip,
+    Tooltip
 } from './Skills.styles'
 
 const colors = {
@@ -40,29 +43,29 @@ interface Competencia {
 }
 
 const competencias: Competencia[] = [
-    { nome: 'TypeScript', nivel: '80', icone: BiLogoTypescript },
-    { nome: 'JavaScript', nivel: '85', icone: RiJavascriptFill },
-    { nome: 'Python', nivel: '70', icone: FaPython },
-    { nome: 'C++', nivel: '30', icone: SiCplusplus },
-    { nome: 'HTML', nivel: '30', icone: FaHtml5 },
-    { nome: 'CSS', nivel: '30', icone: FaCss3Alt },
-    { nome: 'Swift', nivel: '20', icone: FaSwift },
-    { nome: 'Java', nivel: '30', icone: RiJavaLine },
-    { nome: 'React.js', nivel: '85', icone: FaReact },
-    { nome: 'Node.js', nivel: '75', icone: FaNodeJs },
+    { nome: 'TypeScript', nivel: '50', icone: BiLogoTypescript },
+    { nome: 'JavaScript', nivel: '65', icone: RiJavascriptFill },
+    { nome: 'Python', nivel: '30', icone: FaPython },
+    { nome: 'C++', nivel: '20', icone: SiCplusplus },
+    { nome: 'HTML', nivel: '60', icone: FaHtml5 },
+    { nome: 'CSS', nivel: '60', icone: FaCss3Alt },
+    { nome: 'Swift', nivel: '10', icone: FaSwift },
+    { nome: 'Java', nivel: '10', icone: RiJavaLine },
+    { nome: 'React.js', nivel: '65', icone: FaReact },
+    { nome: 'Node.js', nivel: '65', icone: FaNodeJs },
     { nome: 'SQL', nivel: '70', icone: FaDatabase },
-    { nome: 'Prisma ORM', nivel: '75', icone: SiPrisma },
-    { nome: 'Mongo DB', nivel: '45', icone: SiMongodb },
+    { nome: 'Prisma ORM', nivel: '85', icone: SiPrisma },
+    { nome: 'Mongo DB', nivel: '1', icone: SiMongodb },
     { nome: 'GitHub', nivel: '90', icone: FaGithub },
     { nome: 'Git', nivel: '90', icone: FaGitAlt },
-    { nome: 'Figma', nivel: '60', icone: FaFigma },
-    { nome: 'SCRUM', nivel: '65', icone: DiScrum },
-    { nome: 'Kanban', nivel: '70', icone: MdViewKanban },
-    { nome: 'Flutter', nivel: '70', icone: FaFlutter },
-    { nome: 'POO', nivel: '70', icone: MdDataObject },
-    { nome: 'RESTful APIs', nivel: '70', icone: TbApi },
-    { nome: 'Vercel', nivel: '70', icone: IoLogoVercel },
-    { nome: 'Nuvem', nivel: '70', icone: FaCloud },
+    { nome: 'Figma', nivel: '70', icone: FaFigma },
+    { nome: 'SCRUM', nivel: '85', icone: DiScrum },
+    { nome: 'Kanban', nivel: '90', icone: MdViewKanban },
+    { nome: 'Flutter', nivel: '40', icone: FaFlutter },
+    { nome: 'POO', nivel: '60', icone: MdDataObject },
+    { nome: 'RESTful APIs', nivel: '50', icone: TbApi },
+    { nome: 'Vercel', nivel: '80', icone: IoLogoVercel },
+    { nome: 'Nuvem', nivel: '20', icone: FaCloud },
 ]
 
 const softSkills: Competencia[] = [
@@ -74,7 +77,15 @@ const softSkills: Competencia[] = [
 export const Skills = () => {
     return (
         <ContainerCompetencias id="skills">
-            <TituloCompetencias>Competências</TituloCompetencias>
+            <TituloCompetencias>
+                <TituloComTooltip>
+                    Competências
+                    <FaQuestionCircle size={18} color={colors.destaque} />
+                    <Tooltip>
+                        Experiências com 1 de conhecimento são tecnologias que tive um contato muito breve, seja em aulas práticas ou apenas visualizando outras pessoas utilizando 
+                    </Tooltip>
+                </TituloComTooltip>
+            </TituloCompetencias>
             <ListaCompetencias>
                 {competencias.map((item, index) => (
                     <CardCompetencia key={index}>
