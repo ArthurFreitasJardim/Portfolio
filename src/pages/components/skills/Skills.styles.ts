@@ -45,10 +45,15 @@ export const TituloCompetencias = styled.h2`
 
 export const ListaCompetencias = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem;
   justify-items: center;
+
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
 `
+
 
 export const NomeCompetencia = styled.h3`
   font-family: ${fonts.secondary};
@@ -127,7 +132,7 @@ export const CardCompetencia = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding-top: 10px;  
+  padding-top: 10px;
 
   &:hover {
     transform: scale(1.05);
@@ -141,6 +146,11 @@ export const CardCompetencia = styled.div`
       opacity: 0;
       transform: scale(0.95);
     }
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    max-width: 160px; 
   }
 `
 export const TituloComTooltip = styled.div`
