@@ -159,3 +159,51 @@ export const IconeHome = styled(Home)`
   font-size: 1.1em;
   vertical-align: middle;
 `;
+export const LanguageToggle = styled.div`
+  display: flex;
+  gap: 6px;
+  margin-left: 10px;
+
+  button {
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  button:hover {
+    transform: scale(1.2);
+  }
+`;
+
+export const LanguageSwitch = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 12px;
+  cursor: pointer;
+
+  img {
+    width: 22px;
+    height: 22px;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+
+    /* bandeira inativa */
+    filter: grayscale(100%) brightness(70%);
+    opacity: 0.7;
+  }
+
+  img:hover {
+    opacity: 0.9;
+  }
+
+  img.active {
+    /* bandeira ativa */
+    filter: none;
+    opacity: 1;
+    transform: scale(1.08);
+  }
+`;

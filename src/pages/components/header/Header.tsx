@@ -7,10 +7,27 @@ import {
   Menu,
   ItemMenu,
   LinkItemMenu,
+  LanguageToggle,
+  LanguageSwitch,
 } from './Header.styles';
 import { Home } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import brFlag from "../../../assets/br.png";
+import usFlag from "../../../assets/us.png";
 
 const Header: React.FC = () => {
+  const { t, i18n } = useTranslation();
+  const [language, setLanguage] = useState("pt");
+
+  const toggleLanguage = () => {
+    const newLang = language === "pt" ? "en" : "pt";
+    setLanguage(newLang);
+    i18n.changeLanguage(newLang);
+  };
+
+  const isPT = i18n.language === "pt";
+const isEN = i18n.language === "en";
+
   const [menuAtivo, setMenuAtivo] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -43,6 +60,23 @@ const Header: React.FC = () => {
     <Cabecalho className={scrolled ? 'scrolled' : ''}>
       <Arroba>
         @arthur
+
+        <LanguageSwitch>
+  <img
+    src={brFlag}
+    alt="Português"
+    onClick={() => i18n.changeLanguage("pt")}
+    className={isPT ? "flag active" : "flag"}
+  />
+
+  <img
+    src={usFlag}
+    alt="English"
+    onClick={() => i18n.changeLanguage("en")}
+    className={isEN ? "flag active" : "flag"}
+  />
+</LanguageSwitch>
+
         <div
           className={`icone-home ${scrolled ? 'icone-home-active' : ''}`}
           onClick={() => irParaSecao('apresentacao')}
@@ -57,13 +91,15 @@ const Header: React.FC = () => {
 
       <Menu className={menuAtivo ? 'active' : ''}>
         <ItemMenu>
-          <LinkItemMenu onClick={() => irParaSecao('about')}>Sobre</LinkItemMenu>
+          <LinkItemMenu onClick={() => irParaSecao('about')}>
+            {t('about')}
+          </LinkItemMenu>
         </ItemMenu>
         <ItemMenu>
-          <LinkItemMenu onClick={() => irParaSecao('skills')}>Competências</LinkItemMenu>
+          <LinkItemMenu onClick={() => irParaSecao('skills')}>{t('skills')}</LinkItemMenu>
         </ItemMenu>
         <ItemMenu>
-          <LinkItemMenu onClick={() => irParaSecao('projects')}>Projetos/Experiências</LinkItemMenu>
+          <LinkItemMenu onClick={() => irParaSecao('projects')}>{t('projects')}</LinkItemMenu>
         </ItemMenu>
       </Menu>
     </Cabecalho>

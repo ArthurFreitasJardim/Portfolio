@@ -15,6 +15,7 @@ import { MdDataObject, MdViewKanban } from 'react-icons/md'
 import { FaFlutter } from 'react-icons/fa6'
 import { TbApi } from 'react-icons/tb'
 import { IoLogoVercel } from 'react-icons/io5'
+import { useTranslation } from "react-i18next";
 
 import {
     ContainerCompetencias,
@@ -68,55 +69,75 @@ const competencias: Competencia[] = [
     { nome: 'Nuvem', nivel: '20', icone: FaCloud },
 ]
 
-const softSkills: Competencia[] = [
-    { nome: 'Comunicação', nivel: 'Facilidade em Comunicar', icone: FaCommentDots },
-    { nome: 'Equipe', nivel: 'Gosto de Trabalhar em equipe', icone: RiTeamLine },
-    { nome: 'Aprendizado', nivel: 'Facilidade no aprendizado', icone: FaBook },
-]
-
 export const Skills = () => {
+
+    const { t } = useTranslation();
+
+    const softSkills: Competencia[] = [
+        { nome: "soft_communication", nivel: "soft_communication_desc", icone: FaCommentDots },
+        { nome: "soft_team", nivel: "soft_team_desc", icone: RiTeamLine },
+        { nome: "soft_learning", nivel: "soft_learning_desc", icone: FaBook },
+    ];
+
     return (
         <ContainerCompetencias id="skills">
             <TituloCompetencias>
                 <TituloComTooltip>
-                    Competências
+                    {t("skills_title")}
                     <FaQuestionCircle size={18} color={colors.destaque} />
                     <Tooltip>
-                        Experiências com 1 de conhecimento são tecnologias que tive um contato muito breve, seja em aulas práticas ou apenas visualizando outras pessoas utilizando 
+                        {t("skills_tooltip")}
                     </Tooltip>
                 </TituloComTooltip>
             </TituloCompetencias>
+
             <ListaCompetencias>
                 {competencias.map((item, index) => (
                     <CardCompetencia key={index}>
                         <NomeCompetencia>
-                            {item.icone && <item.icone size={25} color={colors.primary} style={{ marginRight: '8px' }} />}
+                            {item.icone && (
+                                <item.icone
+                                    size={25}
+                                    color={colors.primary}
+                                    style={{ marginRight: '8px' }}
+                                />
+                            )}
                             {item.nome}
                         </NomeCompetencia>
                         <InfoHover>
-                            <p>Conhecimento</p>
+                            <p>{t("knowledge")}</p>
                             <Nivel nivel={Number(item.nivel) ?? 0} />
                         </InfoHover>
                     </CardCompetencia>
                 ))}
             </ListaCompetencias>
 
-            <TituloCompetencias style={{ marginTop: '1rem' }}>--</TituloCompetencias>
-
+            <TituloCompetencias style={{ marginTop: '1rem' }}>
+                {t("soft_skills")}
+            </TituloCompetencias>
 
             <ListaCompetencias>
                 {softSkills.map((item, index) => (
                     <CardCompetencia key={index}>
                         <NomeCompetencia>
-                            {item.icone && <item.icone size={25} color={colors.primary} style={{ marginRight: '8px' }} />}
-                            {item.nome}
+                            {item.icone && (
+                                <item.icone
+                                    size={25}
+                                    color={colors.primary}
+                                    style={{ marginRight: '8px' }}
+                                />
+                            )}
+                            {t(item.nome)}
                         </NomeCompetencia>
                         <InfoHover>
-                            <p style={{ paddingTop: '1rem' }}>{item.nivel}</p>
+                            <p style={{ paddingTop: '1rem' }}>
+                                {t(item.nivel ?? "")}
+                            </p>
                         </InfoHover>
                     </CardCompetencia>
                 ))}
             </ListaCompetencias>
+
         </ContainerCompetencias>
     )
 }

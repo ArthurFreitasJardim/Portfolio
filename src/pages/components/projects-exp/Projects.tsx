@@ -1,4 +1,5 @@
-import {Calculator , Laptop2, ShoppingCart, Network } from 'lucide-react'
+import { Calculator, Laptop2, ShoppingCart, Network } from 'lucide-react'
+import { useTranslation } from "react-i18next";
 
 import {
     BotaoProjeto,
@@ -14,30 +15,34 @@ import {
 
 import LeaderRH from '../../../assets/leaderrh.jpg'
 import CodeClub from '../../../assets/codeclublogo.jpg'
+import Senior from "../../../assets/senior.png"
 
 const Projects = () => {
+
+    const { t } = useTranslation();
+
     const projetos = [
         {
-            nome: 'Projeto Grafos',
-            descricao: 'Aplicação para manipulação e visualização de grafos feita em Python',
+            nome: "project_graph_name",
+            descricao: "project_graph_desc",
             repositorio: 'https://github.com/ArthurFreitasJardim/biblioteca-grafos-algoritmos',
             icone: <Network size={48} />
         },
         {
-            nome: 'Drogaria Iporanga',
-            descricao: 'E-commerce feito para fármacia, utiliza banco de dados e comunicação por API',
+            nome: "project_pharmacy_name",
+            descricao: "project_pharmacy_desc",
             repositorio: 'https://github.com/seuuser/allin-store',
             icone: <ShoppingCart size={48} />
         },
         {
-            nome: 'NOG Digital',
-            descricao: 'Site em Typescript e React, produzido para minha empresa em parceria com um amigo, onde oferecemos soluções digitais',
+            nome: "project_nog_name",
+            descricao: "project_nog_desc",
             demo: 'https://www.nogdigital.com.br',
             icone: <Laptop2 size={48} />
         },
         {
-            nome: 'Calculadora Básica',
-            descricao: 'Uma calculadora básica, semelhante à do iPhone, foi construída utilizando HTML, CSS e JavaScript. ',
+            nome: "project_calc_name",
+            descricao: "project_calc_desc",
             demo: 'https://calculadora-iota-rosy.vercel.app',
             repositorio: 'https://github.com/ArthurFreitasJardim/Calculadora',
             icone: <Calculator size={48} />
@@ -46,64 +51,99 @@ const Projects = () => {
 
     const experiencias = [
         {
-            nome: 'Estágio em TI',
-            descricao: 'Atuei como estagiário na manutenção de equipamentos e principalmente na arquiteturação de nuvem.',
+            nome: "exp_intern_name",
+            descricao: "exp_intern_desc",
             imagem: LeaderRH,
         },
         {
-            nome: 'Voluntário Code Club',
-            descricao: 'Auxiliei nas aulas de introdução à programação para crianças, usando Python e Scratch 2.',
+            nome: "exp_codeclub_name",
+            descricao: "exp_codeclub_desc",
             imagem: CodeClub,
+        },
+        {
+            nome: "exp_consistema_name",
+            descricao: "exp_consistema_desc",
+            imagem: Senior,
         },
     ]
 
     return (
         <ContainerProjetos id="projects">
-            <TituloSessao>Projetos</TituloSessao>
-            <GridCards>
-        {projetos.map((projeto, i) => (
-            <CardProjeto key={i}>
-                <IconeProjeto>{projeto.icone}</IconeProjeto>
-                <h3>{projeto.nome}</h3>
-                <p>{projeto.descricao}</p>
-                <div>
-                    {projeto.demo && !projeto.repositorio && (
-                        <BotaoProjeto href={projeto.demo} target="_blank" rel="noopener noreferrer">
-                            Demo
-                        </BotaoProjeto>
-                    )}
-                    {projeto.repositorio && !projeto.demo && (
-                        <BotaoProjeto href={projeto.repositorio} target="_blank" rel="noopener noreferrer">
-                            Repositório
-                        </BotaoProjeto>
-                    )}
-                    {projeto.demo && projeto.repositorio && (
-                        <>
-                            <BotaoProjeto href={projeto.demo} target="_blank" rel="noopener noreferrer">
-                                Demo
-                            </BotaoProjeto>
-                            <BotaoProjeto href={projeto.repositorio} target="_blank" rel="noopener noreferrer">
-                                Repositório
-                            </BotaoProjeto>
-                        </>
-                    )}
-                </div>
-            </CardProjeto>
-        ))}
-    </GridCards>
 
-            <TituloSessao>Experiências</TituloSessao>
+            <TituloSessao>{t("projects_title")}</TituloSessao>
+
+            <GridCards>
+                {projetos.map((projeto, i) => (
+                    <CardProjeto key={i}>
+                        <IconeProjeto>{projeto.icone}</IconeProjeto>
+
+                        <h3>{t(projeto.nome)}</h3>
+
+                        <p>{t(projeto.descricao)}</p>
+
+                        <div>
+
+                            {projeto.demo && !projeto.repositorio && (
+                                <BotaoProjeto
+                                    href={projeto.demo}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {t("demo")}
+                                </BotaoProjeto>
+                            )}
+
+                            {projeto.repositorio && !projeto.demo && (
+                                <BotaoProjeto
+                                    href={projeto.repositorio}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {t("repository")}
+                                </BotaoProjeto>
+                            )}
+
+                            {projeto.demo && projeto.repositorio && (
+                                <>
+                                    <BotaoProjeto
+                                        href={projeto.demo}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        {t("demo")}
+                                    </BotaoProjeto>
+
+                                    <BotaoProjeto
+                                        href={projeto.repositorio}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        {t("repository")}
+                                    </BotaoProjeto>
+                                </>
+                            )}
+
+                        </div>
+                    </CardProjeto>
+                ))}
+            </GridCards>
+
+            <TituloSessao>{t("experience_title")}</TituloSessao>
+
             <GridExperiencias>
                 {experiencias.map((exp, i) => (
                     <CardExperiencia key={i}>
-                        <ImagemExperiencia src={exp.imagem} alt={exp.nome} />
+                        <ImagemExperiencia src={exp.imagem} alt={t(exp.nome)} />
+
                         <div>
-                            <h3>{exp.nome}</h3>
-                            <p>{exp.descricao}</p>
+                            <h3>{t(exp.nome)}</h3>
+                            <p>{t(exp.descricao)}</p>
                         </div>
+
                     </CardExperiencia>
                 ))}
             </GridExperiencias>
+
         </ContainerProjetos>
     )
 }
