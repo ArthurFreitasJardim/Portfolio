@@ -1,160 +1,157 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const colors = {
-  background: '#18181B',
-  primary: '#3f64b3',
-  destaque: '#B0D7FE',
-  white: '#ffffff',
-  highlight2: '#BCD1DD',
-}
-
-const fonts = {
-  primary: '"IBM Plex Mono", serif',
-  secondary: '"Roboto", sans-serif',
-}
+    background: '#18181B',
+    primary: '#3f64b3',
+    destaque: '#B0D7FE',
+    white: '#ffffff',
+    text: '#A1A1AA',
+    cardBg: 'rgba(39, 39, 42, 0.5)',
+};
 
 export const ContainerProjetos = styled.section`
-  width: 100%;
-  min-height: 100vh; 
-  padding: 5rem 2rem;
-  background-color: ${colors.background};
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`
+    width: 100%;
+    padding: 8rem 2rem;
+    background-color: ${colors.background};
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8rem;
+`;
+
+export const SectionWrapper = styled.div`
+    width: 100%;
+    max-width: 1200px;
+`;
 
 export const TituloSessao = styled.h2`
-  font-family: ${fonts.primary};
-  color: ${colors.destaque};
-  font-size: 28px;
-  margin-bottom: 3rem;
-`
+    font-family: "IBM Plex Mono", monospace;
+    color: ${colors.white};
+    font-size: 1.8rem;
+    margin-bottom: 3rem;
+    text-align: left;
+
+    span {
+        color: ${colors.primary};
+        margin-right: 8px;
+    }
+`;
 
 export const GridCards = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2.5rem;
-  width: 100%;
-  margin-bottom: 4rem;
-`
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+`;
 
 export const CardProjeto = styled.div`
-  background-color: rgba(255, 255, 255, 0.03);
-  border: 1px solid ${colors.primary};
-  border-radius: 16px;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-
-  h3 {
-    font-family: ${fonts.primary};
-    color: ${colors.highlight2};
-    font-size: 20px;
-    margin: 0.8rem 0 0.5rem;
-  }
-
-  p {
-    font-family: ${fonts.secondary};
-    color: ${colors.white};
-    font-size: 14px;
-    margin-bottom: 1.2rem;
-  }
-
-  div {
+    background: ${colors.cardBg};
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 2rem;
     display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+    flex-direction: column;
+    transition: all 0.3s ease;
 
-  &:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 0 20px #3f64b3;
-  }
-`
+    h3 {
+        color: ${colors.destaque};
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 1.2rem;
+        margin: 1rem 0;
+    }
 
+    p {
+        color: ${colors.text};
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        flex-grow: 1;
+    }
 
-export const ImagemProjeto = styled.img`
-  width: 100%;
-  height: auto; 
-  object-fit: cover;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-`
+    &:hover {
+        border-color: ${colors.primary};
+        transform: translateY(-5px);
+        background: rgba(39, 39, 42, 0.8);
+    }
+`;
 
-export const BotaoProjeto = styled.a`
-  background-color: ${colors.primary};
-  color: ${colors.white};
-  font-family: ${fonts.secondary};
-  font-size: 14px;
-  padding: 0.4rem 0.8rem;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: background 0.3s;
+export const IconeWrapper = styled.div`
+    color: ${colors.primary};
+    background: rgba(63, 100, 179, 0.1);
+    width: fit-content;
+    padding: 12px;
+    border-radius: 8px;
+`;
 
-  &:hover {
-    background-color: ${colors.destaque};
-    color: ${colors.background};
-  }
-`
+export const BotoesContainer = styled.div`
+    display: flex;
+    gap: 10px;
+`;
 
-export const CardExperiencia = styled.div`
-  display: flex;
-  background-color: rgba(255, 255, 255, 0.03);
-  border: 1px solid ${colors.primary};
-  border-radius: 16px;
-  width: 600px;
-  padding: 1.5rem;
-  align-items: center;
-  gap: 1.5rem;
-
-  h3 {
-    font-family: ${fonts.primary};
-    color: ${colors.highlight2};
-    margin-bottom: 0.5rem;
-    font-size: 20px;
-    text-align: left;
-  }
-
-  p {
-    font-family: ${fonts.secondary};
+export const LinkProjeto = styled.a<{ primary?: boolean }>`
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: 0.2s;
+    
+    background: ${props => props.primary ? colors.primary : 'transparent'};
     color: ${colors.white};
-    font-size: 14px;
-    line-height: 1.4;
-    text-align: left;
-  }
+    border: 1px solid ${colors.primary};
 
-  div {
-    flex: 1;
-  }
-
-  &:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 0 20px #3f64b3;
-  }
-`
-
-export const ImagemExperiencia = styled.img`
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  border-radius: 12px;
-  background-color: white;
-  flex-shrink: 0;
-`
-export const IconeProjeto = styled.div`
-  color: ${colors.destaque};
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-`
+    &:hover {
+        background: ${colors.primary};
+        color: white;
+    }
+`;
 
 export const GridExperiencias = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  margin-bottom: 4rem;
-`
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+`;
+
+export const CardExperiencia = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background: ${colors.cardBg};
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 4px solid transparent;
+    transition: 0.3s;
+
+    &:hover {
+        border-left-color: ${colors.primary};
+        background: rgba(39, 39, 42, 0.9);
+    }
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+        text-align: center;
+    }
+`;
+
+export const ImagemExperiencia = styled.img`
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    background: white;
+    padding: 5px;
+    object-fit: contain;
+`;
+
+export const ExpContent = styled.div`
+    h3 {
+        color: ${colors.white};
+        font-size: 1.1rem;
+        margin-bottom: 4px;
+    }
+    p {
+        color: ${colors.text};
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+`;

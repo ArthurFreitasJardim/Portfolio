@@ -61,7 +61,8 @@ const resources = {
       exp_codeclub_desc: "Auxiliei em aulas de programação para crianças utilizando Python e Scratch",
 
       exp_consistema_name: "Consistema",
-      exp_consistema_desc: "Atuo na elaboração de planilhas, atendimento a clientes e identificação de bugs"
+      exp_consistema_desc: "Atuo na elaboração de planilhas, atendimento a clientes e identificação de bugs", 
+      about_highlight: "Focado em desenvolvimento full-stack e criação de soluções digitais eficientes."
     }
   },
 
@@ -124,7 +125,9 @@ const resources = {
       exp_codeclub_desc: "Helped teach programming to children using Python and Scratch",
 
       exp_consistema_name: "Consistema",
-      exp_consistema_desc: "Work with spreadsheets, customer support and bug identification"
+      exp_consistema_desc: "Work with spreadsheets, customer support and bug identification",
+      
+      about_highlight: "Focused on full-stack development and building efficient digital solutions."
     }
   }
 };

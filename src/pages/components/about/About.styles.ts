@@ -1,125 +1,140 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 const colors = {
   background: '#18181B',
   primary: '#3f64b3',
   destaque: '#B0D7FE',
-  white: '#ffffff',
-}
+  white: '#FAFAFA',
+  text: '#A1A1AA',
+};
 
-const fonts = {
-  primary: '"IBM Plex Mono", serif',
-  secondary: '"Roboto", sans-serif',
-}
-
-export const ContainerSobre = styled.section<{ mostrar: boolean }>`
-  position: relative;
+export const ContainerSobre = styled.section`
   width: 100%;
-  min-height: 100vh;
+  min-height: 90vh;
   background-color: ${colors.background};
-  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: ${({ mostrar }) => (mostrar ? 1 : 0)};
-  transform: ${({ mostrar }) => (mostrar ? 'translateY(0)' : 'translateY(50px)')};
-  transition: all 0.8s ease-in-out;
-  padding: 5rem 2rem;
-
-  @media (max-width: 768px) {
-    align-items: flex-start; 
-    padding-top: 9rem;
-    padding-bottom: 6rem;
-  }
+  padding: 8rem 2rem;
 `;
 
-export const FundoAnimado = styled.div`
-  position: absolute;
+export const SectionWrapper = styled.div`
   width: 100%;
-  height: 100%;
-  z-index: 0;
-`
-
-export const ElementoFlutuante = styled.img`
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  opacity: 0.3;
-  animation: flutuar 6s ease-in-out infinite;
-
-  @keyframes flutuar {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-15px); }
-    100% { transform: translateY(0px); }
-  }
-
-  @media (max-width: 768px) {
-    width: 35px;
-    height: 35px;
-  }
-`
-
-export const ConteudoSobre = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center; 
-  justify-content: center; 
-  gap: 3rem;
-  flex-wrap: wrap;
-  max-width: 1000px;
-  width: 100%;
-  z-index: 1;
-  text-align: left;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    text-align: center;
-  }
-`
+  max-width: 1100px;
+`;
 
 export const TituloSobre = styled.h2`
-  font-size: 28px;
-  color: #B0D7FE;
-  margin-bottom: 24px;
-  font-family: 'IBM Plex Mono', serif;
+  font-family: "IBM Plex Mono", monospace;
+  color: ${colors.white};
+  font-size: 1.8rem;
+  margin-bottom: 4rem;
+  text-align: left;
+
+  span {
+    color: ${colors.primary};
+    margin-right: 8px;
+  }
 `;
 
-export const TextoSobre = styled.div`
-  font-family: ${fonts.secondary};
-  font-size: 14px;
-  line-height: 1.6;
-  font-family: 'IBM Plex Mono', serif;
-  color: ${colors.white};
-  max-width: 600px;
+export const ConteudoSobre = styled.div`
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 5rem;
+  align-items: start;
 
-  div {
-    margin-bottom: 20px;
+  @media (max-width: 968px) {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+`;
+
+export const WrapperFoto = styled(motion.div)`
+  position: relative;
+  
+  .image-border {
+    position: relative;
+    padding: 10px;
+    border: 1px solid rgba(63, 100, 179, 0.2);
+    border-radius: 20px;
   }
 
-  p {
-    text-align: justify;
-    margin: 0;
-  }
-
-  div:last-child {
-    margin-bottom: 0;
-  }
-
-  @media (max-width: 768px) {
-    padding: 0 1rem;
+  .experience-badge {
+    position: absolute;
+    bottom: -15px;
+    right: -15px;
+    background: ${colors.primary};
+    color: white;
+    padding: 10px 15px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
   }
 `;
 
 export const FotoPerfil = styled.img`
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  border: 4px solid ${colors.primary};
-  object-fit: cover;
-  box-shadow: 0 0 15px ${colors.primary};
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  border-radius: 12px;
+  filter: grayscale(30%);
+  transition: 0.4s;
 
-  @media (max-width: 768px) {
-    width: 180px;
-    height: 180px;
+  &:hover {
+    filter: grayscale(0%);
   }
-`
+`;
+
+export const TextoSobre = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  .intro-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "IBM Plex Mono", monospace;
+    color: ${colors.destaque};
+    font-size: 0.9rem;
+    margin-bottom: -0.5rem;
+  }
+
+  p {
+    line-height: 1.8;
+    color: ${colors.text};
+    font-size: 1.05rem;
+    text-align: justify;
+  }
+
+  .tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+`;
+
+export const Destaque = styled.div`
+  position: relative;
+  background: rgba(63, 100, 179, 0.05);
+  padding: 1.5rem;
+  border-radius: 8px;
+  color: ${colors.destaque};
+  border-left: 4px solid ${colors.primary};
+  font-style: italic;
+`;
+
+export const Badge = styled.span`
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: ${colors.text};
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-family: "IBM Plex Mono", monospace;
+`;

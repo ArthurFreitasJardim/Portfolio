@@ -1,179 +1,137 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes } from 'styled-components';
+import { motion } from 'framer-motion';
 
 const colors = {
   background: '#18181B',
-  header: '#27272E',
   primary: '#3f64b3',
   destaque: '#B0D7FE',
-  highlight2: '#BCD1DD',
   white: '#ffffff',
-}
+  text: '#A1A1AA',
+};
 
-const fonts = {
-  primary: '"IBM Plex Mono", serif',
-  secondary: '"Roboto", sans-serif',
-}
+const bounce = keyframes`
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+`;
 
-const descer = keyframes`
-  0% {
-    transform: translate(-50%, 0);
-    opacity: 1;
-  }
-  50% {
-    transform: translate(-50%, 10px);
-    opacity: 0.5;
-  }
-  100% {
-    transform: translate(-50%, 0);
-    opacity: 1;
-  }
-`
-
-export const Apresentacao = styled.section<{ mostrar: boolean }>`
-  align-items: center;
-  text-align: center;
+export const ApresentacaoSection = styled.section`
+  position: relative;
+  height: 100vh;
+  width: 100%;
   background-color: ${colors.background};
+  display: flex;
   justify-content: center;
+  align-items: center;
+  overflow: hidden;
+`;
+
+export const CanvasWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; // Fundo absoluto
+  pointer-events: none; // IMPORTANTE: Permite clicar no que está atrás
+  
+  canvas {
+    width: 100%;
+    height: 100%;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent 20%, ${colors.background} 90%);
+  }
+`;
+
+export const ConteudoCentral = styled(motion.div)`
+  position: relative;
+  z-index: 2; // Acima do canvas
+  text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  height: 100vh;
-  opacity: ${({ mostrar }) => (mostrar ? 1 : 0)};
-  transform: ${({ mostrar }) => (mostrar ? 'scale(1)' : 'scale(0.5)')};
-  transition: all 0.8s ease-in-out;
-  padding: 1.8em;
-
-  @media (min-width: 1201px) {
-    padding: 0;
-  }
-`
-
-export const Titulo = styled.h1<{ mostrar: boolean }>`
-  font-size: 8em;
-  font-weight: bold;
-  color: ${colors.destaque};
-  font-family: ${fonts.primary};
-  text-shadow: 4px 4px 4px ${colors.primary};
-  opacity: ${({ mostrar }) => (mostrar ? 1 : 0)};
-  transform: ${({ mostrar }) => (mostrar ? 'translateY(0)' : 'translateY(-50px)')};
-
-  @media (max-width: 1200px) {
-    font-size: 2.5rem;
-  }
-`
-
-export const RedesSociais = styled.div<{ mostrar: boolean }>`
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin: 1rem 0;
-  opacity: ${({ mostrar }) => (mostrar ? 1 : 0)};
-  transform: ${({ mostrar }) => (mostrar ? 'translateY(0)' : 'translateY(-50px)')};
-  transition: all 0.8s ease-in-out 0.4s;
-  margin-bottom: 3rem; 
-
-  svg {
-    width: 30px;
-    height: 30px;
-  }
-`
-
-export const BotaoDownload = styled.a<{ mostrar: boolean }>`
-  background-color: ${colors.background};
-  color: ${colors.destaque};
-  border: 1px solid ${colors.destaque};
-  width: 25%;
-  text-align: center;
-  border-radius: 10px;
-  font-size: 1.1rem;
-  padding: 0.8em;
-  font-weight: 600;
-  text-decoration: none; 
-  margin-top: 2rem;       
-
-  opacity: ${({ mostrar }) => (mostrar ? 1 : 0)};
-  transform: ${({ mostrar }) => (mostrar ? 'translateY(0)' : 'translateY(-50px)')};
-  transition: ease-in-out 0.6s;
-  cursor: pointer;
-
-  &:hover {
-    background-color: ${colors.destaque};
-    color: ${colors.background};
-    transition: 0.5s;
-    border: 1px solid ${colors.background};
-  }
-
-  @media (max-width: 1200px) {
-    width: 50%;
-    margin-top: 1.5rem;
-  }
-
-  @media (max-width: 768px) {
-    width: 80%;
-    margin-top: 1rem;
-  }
-`;
-
-export const BotaoDownloadLight = styled(BotaoDownload)`
-  border: none;
-
-  &:hover {
-    background-color: ${colors.primary};
-    color: ${colors.background};
-    border: none;
-  }
-`
-
-export const IconeContato = styled.div`
-  display: flex;
   align-items: center;
-  justify-content: center;
-  width: 55px;
-  height: 55px;
-  border: 2px solid ${colors.primary};
-  border-radius: 50%;
-  background-color: transparent;
-  transition: 0.3s;
-  color: ${colors.primary};
-  cursor: pointer;
 
-  svg {
-    width: 28px;
-    height: 28px;
-  }
-
-  &:hover {
-    background-color: ${colors.primary};
-    color: ${colors.background};
-  }
-`;
-
-export const IconeContatoLight = styled(IconeContato)`
-  border: 2px solid ${colors.background};
-  color: ${colors.destaque};
-  background-color: ${colors.background};
-
-  &:hover {
-    border: 2px solid ${colors.primary};
+  .pre-titulo {
+    font-family: "IBM Plex Mono", monospace;
     color: ${colors.primary};
-    background-color: ${colors.background};
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .subtitulo {
+    color: ${colors.text};
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    font-family: "Roboto", sans-serif;
   }
 `;
 
-export const Seta = styled.div`
-  position: absolute;
-  bottom: 80px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 15px solid ${colors.primary};
-  animation: ${descer} 1.5s infinite;
-  margin-bottom: 20px;
-`
+export const Titulo = styled.h1`
+  font-family: "IBM Plex Mono", monospace;
+  font-size: clamp(2.5rem, 10vw, 6rem);
+  color: ${colors.white};
+  font-weight: 700;
+  letter-spacing: -3px;
+  line-height: 1.1;
+  
+  background: linear-gradient(180deg, #fff 30%, ${colors.destaque} 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+`;
 
-export const SetaLight = styled(Seta)`
-  border-top: 15px solid ${colors.background};
-`
+export const RedesSociais = styled.div`
+  display: flex;
+  gap: 2rem;
+  margin: 3.5rem 0;
+`;
+
+export const IconeContato = styled.a`
+  color: ${colors.text};
+  transition: all 0.3s ease;
+  z-index: 10;
+  
+  &:hover {
+    color: ${colors.destaque};
+  }
+`;
+
+export const BotaoDownload = styled.a`
+  font-family: "IBM Plex Mono", monospace;
+  padding: 14px 36px;
+  border: 1px solid ${colors.primary};
+  color: ${colors.white};
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: rgba(63, 100, 179, 0.03);
+  z-index: 10;
+  
+  &:hover {
+    background: ${colors.primary};
+    box-shadow: 0 10px 20px rgba(63, 100, 179, 0.3);
+  }
+`;
+
+export const SetaContainer = styled.div`
+  position: absolute;
+  bottom: 50px;
+  cursor: pointer;
+  color: ${colors.primary};
+  animation: ${bounce} 2s infinite ease-in-out;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+  z-index: 10;
+
+  &:hover {
+    opacity: 1;
+  }
+`;

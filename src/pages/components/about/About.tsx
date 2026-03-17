@@ -1,10 +1,8 @@
-import React from 'react'
-import { motion } from 'framer-motion'
-import Image from "../../../assets/selfie.png";
-import Game from "../../../assets/game.png"
-import Futebol from "../../../assets/futebol.png"
-import Musica from "../../../assets/musica.png"
+import React from 'react';
+import { motion } from 'framer-motion';
 import { useTranslation } from "react-i18next";
+import { Terminal, User, Code2 } from 'lucide-react';
+import Image from "../../../assets/selfie.png";
 
 import {
   ContainerSobre,
@@ -12,59 +10,80 @@ import {
   TituloSobre,
   TextoSobre,
   FotoPerfil,
-  ElementoFlutuante,
-  FundoAnimado
-} from './About.styles'
+  Destaque,
+  WrapperFoto,
+  SectionWrapper,
+  Badge
+} from './About.styles';
 
 const About: React.FC<{ mostrar: boolean }> = ({ mostrar }) => {
   const { t } = useTranslation();
 
+  const containerVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, staggerChildren: 0.2 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: { opacity: 1, x: 0 }
+  };
+
   return (
-    <ContainerSobre id="about" mostrar={mostrar}>
-      <FundoAnimado />
+    <ContainerSobre id="about">
+      <SectionWrapper
+        as={motion.div}
+        variants={containerVariants}
+        initial="hidden"
+        animate={mostrar ? "visible" : "hidden"}
+      >
+        <TituloSobre>
+          <span>/</span>{t("about_title")}
+        </TituloSobre>
 
-      <ElementoFlutuante src={Game} style={{ opacity: '100%', top: '15%', left: '5%' }} />
-      <ElementoFlutuante src={Futebol} style={{ opacity: '100%', top: '85%', left: '4%' }} />
-      <ElementoFlutuante src={Musica} style={{ opacity: '100%', top: '20%', right: '5%' }} />
+        <ConteudoSobre>
+          <WrapperFoto variants={itemVariants}>
+            <div className="image-border">
+               <FotoPerfil src={Image} alt="Arthur Freitas Jardim" loading="lazy" />
+            </div>
+            <div className="experience-badge">
+                <Code2 size={16} />
+                <span>Full Stack Developer</span>
+            </div>
+          </WrapperFoto>
 
-      <ConteudoSobre>
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: mostrar ? 1 : 0, x: mostrar ? 0 : -50 }}
-          transition={{ duration: 0.8 }}
-        >
-          <FotoPerfil src={Image} alt="Foto de perfil" />
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: mostrar ? 1 : 0, x: mostrar ? 0 : 50 }}
-          transition={{ duration: 0.8 }}
-        >
-          <TituloSobre>{t("about_title")}</TituloSobre>
-
-          <TextoSobre>
-            <div>
+          <motion.div variants={itemVariants}>
+            <TextoSobre>
+              <div className="intro-line">
+                <Terminal size={18} color="#3f64b3" />
+                <span>whoami</span>
+              </div>
+              
               <p>{t("about_p1")}</p>
-            </div>
-
-            <div>
               <p>{t("about_p2")}</p>
-            </div>
 
-            <div>
+              <Destaque>
+                <div className="accent-bar" />
+                {t("about_highlight")}
+              </Destaque>
+
               <p>{t("about_p3")}</p>
-            </div>
-
-            <div>
-              <p>{t("about_p4")}</p>
-            </div>
-          </TextoSobre>
-
-        </motion.div>
-      </ConteudoSobre>
+              
+              <div className="tags">
+                <Badge>Problem Solver</Badge>
+                <Badge>Tech Enthusiast</Badge>
+                <Badge>Continuous Learner</Badge>
+              </div>
+            </TextoSobre>
+          </motion.div>
+        </ConteudoSobre>
+      </SectionWrapper>
     </ContainerSobre>
-  )
-}
+  );
+};
 
-export default About
+export default About;
